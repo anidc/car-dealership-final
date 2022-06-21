@@ -1,0 +1,65 @@
+$main-blue: #090938;
+$sec-blue: #1f63fb;
+$yellow: #fed438;
+$rd-blue: #16c1c7;
+$white: #fff;
+
+
+
+.carousel {
+    width: 100%;
+    margin-top: 5px;
+    z-index: -100;
+}
+
+.bottom-left {
+    position: absolute;
+    left: 50px;
+    height: 100vh;
+
+    h5 {
+        font-size: 4em;
+        font-weight: 300;
+    }
+
+    text-align: left;
+    height: 140px;
+}
+
+.bottom-right {
+    position: absolute;
+    right: 30px;
+
+    h5 {
+        font-size: 4em;
+        font-weight: 300;
+    }
+
+    text-align: right;
+    height: 130px;
+}
+
+img {
+    width: 100%;
+}
+
+.wrapper {
+    h2 {
+        color: lighten($main-blue, 20%);
+        text-align: center;
+        font-weight: 600;
+    }
+}
+
+
+@media screen and (max-width:1250px) {
+    .wrapper {
+        width: 100% !important;
+    }
+
+    .display-cars {
+        justify-content: flex-start !important;
+        width: 100% !important;
+        overflow-x: scroll;
+    }
+}

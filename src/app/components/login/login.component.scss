@@ -1,0 +1,29 @@
+$main-blue: #090938;
+$sec-blue: #1f63fb;
+$yellow: #fed438;
+$rd-blue: #16c1c7;
+$white: #fff;
+
+.form{
+    padding: 100px 0;
+    width: 300px;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    .form-group{
+        margin: 15px 0;
+        h4{
+            color: $main-blue;
+        }
+    }
+    .btn{
+        background-color: $sec-blue;
+        width: 100%;
+    }
+    .regist-div{
+
+        p{
+            margin-top: 10px;
+            text-align: center;
+        }
+    }
+}

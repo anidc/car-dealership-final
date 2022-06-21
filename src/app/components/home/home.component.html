@@ -1,0 +1,33 @@
+<ngb-carousel [showNavigationIndicators]="showNavigationIndicators" class="ngb-carousel">
+    <ng-template ngbSlide class="ng-template">
+        <div class="picsum-img-wrapper">
+            <img src="https://i.ibb.co/ZfRMRXm/arteon.jpg">
+        </div>
+        <div class="carousel-caption bottom-left">
+            <h5>TRAŽITE NOVOG LJUBIMCA?</h5>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide class="ng-template">
+        <div class="picsum-img-wrapper">
+            <img src="https://i.ibb.co/N1S5fhG/gti.jpg">
+        </div>
+        <div class="carousel-caption bottom-left">
+            <h5>ILI ŽELITE KUPITI AUTO NA LIZING?</h5>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide class="ng-template">
+        <div class="picsum-img-wrapper">
+            <img src="https://i.ibb.co/RN2xWt4/mecka.jpg">
+        </div>
+        <div class="carousel-caption bottom-right">
+            <h5>NA PRAVOM STE MJESTU!</h5>
+        </div>
+    </ng-template>
+</ngb-carousel>
+
+<div class="wrapper w-75 m-auto">
+    <h2>Iz ponude izdvajamo najtrazenije modele</h2>
+    <div class="display-cars d-flex justify-content-around w-75 m-auto">
+        <app-car-card *ngFor="let car of cars" [car]="car"></app-car-card>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="wrapper d-flex m-auto">
+    <div class="display-makes">
+        <h4>Proizvođači</h4>
+        <h6 [ngClass]="{active: activeMake === make.id}" (click)="activatedMake(make)" *ngFor="let make of makes">
+            {{make.make}}</h6>
+    </div>
+
+    <div class="display-cars">
+        <app-car-card *ngFor="let car of cars" [car]="car"></app-car-card>
+    </div>
+</div>

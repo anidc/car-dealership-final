@@ -1,0 +1,11 @@
+<div class="wrapper w-75 m-auto">
+    <div class="display-cars d-flex justify-content-center flex-wrap">
+        <app-car-card class="m-2" *ngFor="let car of cars" [car]="car" [cart]="true" (remove)="removeFromCart($event)">
+        </app-car-card>
+    </div>
+    <div class="actions w-25 m-auto d-flex flex-column justify-content-center">
+        <button (click)="removeAllFromCart()" class="btn btn-danger mb-1">X</button>
+        <button (click)="buyFromCart()" class="btn btn-success">Kupi</button>
+    </div>
+</div>
+<!--   -->

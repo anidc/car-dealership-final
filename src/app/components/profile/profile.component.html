@@ -1,0 +1,48 @@
+<div class="wrapper">
+    <div class="user-info-main m-4">
+        <img src="https://jejuhydrofarms.com/wp-content/uploads/2020/05/blank-profile-picture-973460_1280.png" alt="">
+        <div class="user-info">
+            <h3>{{userInfo.first_name + ' ' + userInfo.last_name}}</h3>
+        </div>
+        <div class="user-info">
+            <h5>Username: </h5>
+            <h5>{{userInfo.username}}</h5>
+        </div>
+        <div class="user-info">
+            <h5>Address: </h5>
+            <h5>{{userInfo.address}}</h5>
+        </div>
+        <div class="user-info">
+            <h5>Role: </h5>
+            <h5 class="role">{{userInfo.role}}</h5>
+        </div>
+        <div class="user-info">
+            <h5>STATUS:</h5>
+            <h5 class="status">{{userInfo.status}}</h5>
+        </div>
+    </div>
+    <div class="cars-main mt-4">
+        <h2>Kupljena auta:</h2>
+        <div class="cars d-flex">
+            <div class="user-bought-cars" *ngFor="let car of boughtCars">
+                <div class="card">
+                    <div class="picture">
+                        <img [src]="car.main_image" alt="">
+                    </div>
+                    <div class="title-div">
+                        <h4>{{car.title}}</h4>
+                    </div>
+                    <div class="card-bottom-div">
+                        <p class="km"><i class="bi bi-speedometer"></i> {{car.km}}</p>
+                        <div class="price-div">
+                            <h6 style="height: 10px;">
+                                <p class="discount" *ngIf="car.discount !== 0">{{car.price | currency: "KM"}}</p>
+                            </h6>
+                            <h5>{{car.price-car.discount | currency: "KM"}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+$main-blue: #090938;
+$sec-blue: #1f63fb;
+$yellow: #fed438;
+$rd-blue: #16c1c7;
+$white: #fff;
+$background: #241d54;
+
+
+.users, .cars,.categories{
+    padding: 10px 50px;
+    align-items: center;
+    width: 210px;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 3px;
+    i{
+        color: $white;
+        font-size: 23px;
+    }
+    p{
+        margin: 0;
+        color: $white;
+        font-weight: 600;
+        align-items: center;
+    }
+    fa-icon{
+        color: $white;
+        font-size: 23px;
+    }
+    &:hover{
+        cursor: pointer;
+        opacity: .8;
+    }
+}
+
+.wrapper{
+    width: 1000px;
+    margin: auto;
+    justify-content: space-evenly;
+    .users{
+        background-color: $yellow;
+    }
+    .cars{
+        background-color: $sec-blue;
+    }
+    .categories{
+        background-color: $rd-blue;
+    }
+}
+
+.active{
+    opacity: .8;
+    border: 1px solid lighten($background, 50%);
+    box-shadow: 0px 0px 20px -4px rgba(0,0,0,0.74);
+}

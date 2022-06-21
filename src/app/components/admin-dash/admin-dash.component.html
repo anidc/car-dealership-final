@@ -1,0 +1,22 @@
+<div class="d-flex wrapper mt-5 mb-5">
+    <div class="d-flex users" [class.active]="active == 'users'" (click)="active = 'users'">
+        <i class="bi bi-people"></i>
+        <p>&nbsp; USERS</p>
+    </div>
+    <div class="d-flex cars" [class.active]="active == 'cars'" (click)="active = 'cars'">
+        <fa-icon [icon]="faCar"></fa-icon>
+        <p
+            style="position: absolute; margin-right: 165px; margin-bottom: 7px; font-size: 70px; opacity: .5; font-weight: 400;">
+            {{numberOfCars}}
+        </p>
+        <p>&nbsp; CARS</p>
+    </div>
+    <!-- <div class="d-flex categories" [class.active]="active == 'categories'" (click)="active = 'categories'">
+        <i class="bi bi-bookmark"></i>
+        <p>&nbsp;CATEGORIES</p>
+    </div> -->
+
+</div>
+
+<app-admin-cars *ngIf="active == 'cars'"></app-admin-cars>
+<app-admin-users *ngIf="active == 'users'"></app-admin-users>

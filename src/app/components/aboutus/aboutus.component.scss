@@ -1,0 +1,43 @@
+$main-blue: #090938;
+$sec-blue: #1f63fb;
+$yellow: #fed438;
+$rd-blue: #16c1c7;
+$white: #fff;
+$background: #241d54;
+
+.aboutus {
+    font-family: 'Poppins', sans-serif;
+
+    .wrapper {
+        background-color: $white;
+        margin: auto;
+        max-width: 1200px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            margin-top: 40px;
+        }
+
+        img {
+            margin: 20px 0 40px 0;
+        }
+
+        .text-location {
+            display: flex;
+
+            .text {
+                width: 50%;
+            }
+        }
+
+        p {
+            padding: 5px 0 20px 0;
+        }
+
+        iframe {
+            padding: 10px 0 30px;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<div (click)="showDetails(car.id)" class="card">
+    <div class="picture">
+        <img [src]="car.main_image" alt="">
+        <button class="remove-button" *ngIf="cart" (click)="removeEmit($event)">X</button>
+    </div>
+    <div class="title-div">
+        <h4>{{car.title}}</h4>
+    </div>
+    <div class="card-bottom-div">
+        <p class="km"><i class="bi bi-speedometer"></i> {{car.km}}</p>
+        <div class="price-div">
+            <h6 style="height: 10px;">
+                <p class="discount" *ngIf="car.discount !== 0">{{car.price | currency: "KM"}}</p>
+            </h6>
+            <h5>{{car.price-car.discount | currency: "KM"}}</h5>
+        </div>
+    </div>
+</div>

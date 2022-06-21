@@ -1,0 +1,109 @@
+<div class="row">
+    <h3>Dodaj automobil</h3>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.title" placeholder="Title" type="text" class="form-control">
+    </div>
+    <select [(ngModel)]="newCar.make_id" class="custom-select custom-select-lg mb-3 col-md-6">
+        <option value="-1">Marka</option>
+        <option *ngFor="let make of makes" [value]="make.id">{{make.make}}</option>
+    </select>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.year" placeholder="Godina" type="number" class="form-control">
+    </div>
+    <select [(ngModel)]="newCar.model_id" class="custom-select custom-select-lg mb-3 col-md-6">
+        <option value="-1">Model</option>
+        <option *ngFor="let model of models" [value]="model.id">{{model.model}}</option>
+    </select>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.hp" placeholder="Konjske snage(hp)" type="number" class="form-control">
+    </div>
+    <select [(ngModel)]="newCar.color_id" class="custom-select custom-select-lg mb-3 col-md-6">
+        <option value="-1">Boja</option>
+        <option *ngFor="let boja of colors" [value]="boja.id">{{boja.color}}</option>
+    </select>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.kw" placeholder="Kilovati (kW)" type="number" class="form-control">
+    </div>
+    <select [(ngModel)]="newCar.fuel_id" class="custom-select custom-select-lg mb-3 col-md-6">
+        <option value="-1">Gorivo</option>
+        <option *ngFor="let fuel of fuels" [value]="fuel.id">{{fuel.fuel_type}}</option>
+    </select>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.price" placeholder="Cijena" type="number" class="form-control">
+    </div>
+    <select [(ngModel)]="newCar.type_id" class="custom-select custom-select-lg mb-3 col-md-6">
+        <option value="-1">Tip</option>
+        <option *ngFor="let tip of types" [value]="tip.id">{{tip.car_type}}</option>
+    </select>
+    <div class="mb-3 col-md-6">
+
+        <input [(ngModel)]="newCar.discount" placeholder="Popust" type="text" class="form-control">
+    </div>
+    <select [(ngModel)]="newCar.transmission_id" class="custom-select custom-select-lg mb-3 col-md-6">
+        <option value="-1">Transmisija</option>
+        <option *ngFor="let transmisija of transmissions" [value]="transmisija.id">
+            {{transmisija.transmission_type}}
+        </option>
+    </select>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.km" placeholder="Kilometraza" type="number" class="form-control">
+    </div>
+    <div class="mb-3 col-md-6 p-0">
+        <textarea [(ngModel)]="newCar.description" placeholder="Opis" cols="82" rows="10"
+            style="position: absolute"></textarea>
+    </div>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.main_image" placeholder="Pocetna slika" type="text" class="form-control">
+    </div>
+    <div class="mb-3 col-md-6">
+    </div>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.image1" placeholder="Slika 1" type="text" class="form-control">
+    </div>
+    <div class="mb-3 col-md-6">
+    </div>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.image2" placeholder="Slika 2" type="text" class="form-control">
+    </div>
+    <div class="mb-3 col-md-6">
+    </div>
+    <div class="mb-3 col-md-6">
+        <input [(ngModel)]="newCar.image3" placeholder="Slika 3" type="text" class="form-control">
+    </div>
+    <button *ngIf="!newCar.id"
+        [disabled]="!newCar.title || !newCar.price|| !newCar.main_image || !newCar.make_id || !newCar.model_id || !newCar.km || !newCar.hp || !newCar.kw || !newCar.year || !newCar.fuel_id"
+        (click)="saveCar()" type="button" class="btn btn-primary">Dodaj</button>
+    <button *ngIf="newCar.id"
+        [disabled]="!newCar.title || !newCar.price|| !newCar.main_image || !newCar.make_id || !newCar.model_id || !newCar.km || !newCar.hp || !newCar.kw || !newCar.year || !newCar.fuel_id"
+        (click)="updateCar()" type="button" class="btn btn-primary">Update</button>
+    <button (click)="clearForm()" class="btn btn-outline-light">Clear all</button>
+</div>
+<br>
+<hr>
+<h3>Lista autombila</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of cars" class="d-flex justify-content-between">
+            <td class="image-admin"><img [src]="car.main_image" alt=""></td>
+            <td class="details-admin w-75">
+                <h4>{{car.title}}</h4>
+                <p class="description">{{car.description}}</p>
+                <h6 class="mt-2 mb-0"><i class="bi bi-speedometer"></i> {{car.km}}</h6>
+            </td>
+            <td class="actions-admin d-flex align-items-end flex-column bd-highlight">
+                <h5 class="mb-auto p-2 bd-highlight pt-0">{{ car.price | currency:'KM '}}</h5>
+                <button (click)="editCar(car)" class="btn btn-outline-primary bd-highlight w-75 mb-1"><i
+                        class="bi bi-pencil-square"></i>
+                    Uredi</button>
+                <button (click)="deleteCar(car.id)" class="btn btn-outline-danger m-0 bd-highlight w-50"><i
+                        class="bi bi-trash"></i>
+                    Izbrisi</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

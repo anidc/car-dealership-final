@@ -1,0 +1,42 @@
+<div class="footer">
+
+    <div class="parent">
+        <div class="child">
+            <img class="mb-3" src="https://i.ibb.co/JB2Z4CD/logo-white.png" alt="">
+            <div class="icons">
+                <a href="https://facebook.com"><i class="bi bi-facebook"></i></a>
+                <a href="https://instagram.com"><i class="bi bi-instagram"></i></a>
+                <a href="https://twitter.com"><i class="bi bi-twitter"></i></a>
+                <a href="https://youtube.com"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+        <div class="child">
+            <h6>Company</h6>
+            <ul>
+                <li><a routerLink="/home">Home</a></li>
+                <li><a routerLink="/cars">Ponuda vozila</a></li>
+                <li><a routerLink="/aboutus">O nama</a></li>
+                <li><a routerLink="/login">Login</a></li>
+            </ul>
+        </div>
+        <div class="child">
+            <h6>Visit</h6>
+            <p>16 Zmaja od Bosne, Kubus D, Sarajevo 71000</p>
+            <p>Cara Dušana 34, Beograd 11080, Srbija</p>
+        </div>
+        <div class="child">
+            <h6>Pomoc</h6>
+            <ul>
+                <li><a routerLink="/home">Garancija 12 mjeseci</a></li>
+                <li><a routerLink="/home">Nase poslovnice</a></li>
+                <li><a routerLink="/home">Terms</a></li>
+                <li><a routerLink="/home">Privacy</a></li>
+            </ul>
+        </div>
+        <div *ngIf="!userService?.loggedUser.id" class="child" routerLink="/registration" routerLinkActive="active">
+            <button (click)="signup()" class="button"><span>Sign
+                    Up</span></button>
+        </div>
+    </div>
+    <p class="copyright">&copy; AnidCars. All rights reserved.</p>
+</div>

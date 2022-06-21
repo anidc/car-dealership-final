@@ -1,0 +1,107 @@
+<div class="wrapper">
+    <div class="image-container">
+        <mdb-carousel class="carousel slide carousel-fade" [type]="'carousel-thumbnails'" [animation]="'fade'">
+            <mdb-carousel-item>
+                <img class="d-block w-100" [src]="carDetail.main_image" alt="First slide">
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+                <img *ngIf="carDetail.image1 || {}" class="d-block w-100" [src]="carDetail.image1" alt="Second slide">
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+                <img *ngIf="carDetail.image2 || {}" class="d-block w-100" [src]="carDetail.image2" alt="Third slide">
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+                <img [ngClass]="{none: !carDetail.image3}" class="d-block w-100" [src]="carDetail.image3"
+                    alt="Fourth slide">
+            </mdb-carousel-item>
+        </mdb-carousel>
+    </div>
+    <div class="title-actions d-flex justify-content-between">
+        <div class="title">
+            <h2 class="p-2 m-0">{{carDetail.title}}</h2>
+        </div>
+        <div class="actions-container d-flex justify-content-end">
+            <button (click)="addToFavorites(carDetail.id)" class="btn btn-outline-danger"><i
+                    class="bi bi-heart-fill"></i></button>
+            <button (click)="addToCart(carDetail.id)" class="btn btn-primary"><i class="bi bi-cart3"></i> Dodaj u
+                korpu</button>
+        </div>
+    </div>
+
+    <h5 class="detaljne-informacije-naslov">Osnovne informacije</h5>
+    <div class="about-container">
+        <div class="main-about d-flex m-2">
+            <div class="price-div">
+                <p class="cijena-icon"><i class="bi bi-cash-coin"></i> Cijena</p>
+                <div class="price-div-div-price d-flex">
+                    <p *ngIf="carDetail.discount !== 0" class="old-price">{{carDetail.price | currency: "KM "}}</p>
+                    <h3>{{carDetail.price-carDetail.discount | currency: "KM "}}</h3>
+                </div>
+            </div>
+
+            <div class="heading-divs make-div">
+                <p>Proizvođač</p>
+                <h5>{{carDetail.make}}</h5>
+            </div>
+
+            <div class="heading-divs model-div">
+                <p>Model</p>
+                <h5>{{carDetail.model}}</h5>
+            </div>
+
+            <div class="heading-divs model-div">
+                <p>Kilometraza</p>
+                <h5>{{carDetail.km}}</h5>
+            </div>
+
+            <div class="heading-divs model-div">
+                <p>Godina</p>
+                <h5>{{carDetail.year}}</h5>
+            </div>
+
+            <div class="heading-divs model-div">
+                <p>Gorivo</p>
+                <h5>{{carDetail.fuel_type}}</h5>
+            </div>
+        </div>
+        <h5 class="detaljne-informacije-naslov">Detaljne informacije</h5>
+        <div class="details-about d-flex flex-wrap">
+            <div class="one-detail-about d-flex justify-content-between">
+                <p>Tip</p>
+                <h6>{{carDetail.car_type}}</h6>
+            </div>
+            <div class="one-detail-about d-flex justify-content-between">
+                <p>kW</p>
+                <h6>{{carDetail.kw}}</h6>
+            </div>
+            <div class="one-detail-about d-flex justify-content-between">
+                <p>Konjske snage</p>
+                <h6>{{carDetail.hp}}</h6>
+            </div>
+            <div class="one-detail-about d-flex justify-content-between">
+                <p>Transmisija</p>
+                <h6>{{carDetail.transmission_type}}</h6>
+            </div>
+            <div class="one-detail-about d-flex justify-content-between">
+                <p>Boja</p>
+                <h6>{{carDetail.color}}</h6>
+            </div>
+            <div class="one-detail-about d-flex justify-content-between">
+                <p>Godina</p>
+                <h6>{{carDetail.year}}</h6>
+            </div>
+            <div class="one-detail-about d-flex justify-content-between">
+                <p>Kilometraza</p>
+                <h6>{{carDetail.km}}</h6>
+            </div>
+            <div class="one-detail-about d-flex justify-content-between">
+                <p>Gorivo</p>
+                <h6>{{carDetail.fuel_type}}</h6>
+            </div>
+        </div>
+        <div class="about-description">
+            <h5>Opis automobila</h5>
+            <p>{{carDetail.description}}</p>
+        </div>
+    </div>
+</div>
